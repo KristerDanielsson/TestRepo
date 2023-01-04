@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{336a9b16-1fa5-4eed-90ef-5a17914deabf}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//stThisIsOurFirstInstanceOfAStructure: ST_Event;
+	bBoolean: BOOL:= FALSE;
+	//n: INT;
+	//trigger: BOOL;
+	
+	
+	//LocalSystemTime: FB_LocalSystemTime();
+		//timeStruct: TIMESTRUCT;
+	CSVPersistentEventStorage: FB_CSVPersistentEventStorage;	
+	Eventlogger:Eventlogger(CSVPersistentEventStorage);
+	
+	//SQLPersistentEventStorage: SQLPersistentEventStorage;
+	//Eventlogger2:Eventlogger(SQLPersistentEventStorage);
+	
+	eEventType: E_EventType:=E_EventType.Alarm ;
+	eEventSeverity: TcEventSeverity:=TcEventSeverity.Critical;
+	nEventIdentity: UDINT:=1;
+	sEventText: STRING(255):= 'Allvarligt fel';
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF NOT bBoolean THEN
+	Eventlogger.AddEvent(eEventType:= eEventType,eEventSeverity:= eEventSeverity,nEventIdentity:=nEventIdentity,sEventText:=sEventText);
+	
+	bBoolean:= TRUE;
+END_IF
+
+
+CSVPersistentEventStorage();
+
+//LocalSystemTime(bEnable:=TRUE,systemTime=> timeStruct);
+
+//stThisIsOurFirstInstanceOfAStructure.dtTimeStamp := SYSTEMTIME_TO_DT(TIMESTR:=timeStruct);
+//stThisIsOurFirstInstanceOfAStructure.sEventText:= 'TEST';]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="23" Count="1" />
+      <LineId Id="58" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="85" Count="2" />
+      <LineId Id="35" Count="1" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="21" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

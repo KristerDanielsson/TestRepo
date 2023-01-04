@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_EventType" Id="{4ecc37e3-91a6-43ad-a64b-ee1f4a11b033}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to string'}
+TYPE E_EventType :
+(
+	Alarm,
+	Message
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

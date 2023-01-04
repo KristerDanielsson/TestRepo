@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="WeekDay" Id="{4eb87e12-dc51-4f5a-9e45-3a12ce6be4f0}">
+    <Declaration><![CDATA[//{attribute 'qualified_only'}
+//{attribute 'strict'}
+TYPE WeekDay :
+(
+	Monday := 1,
+	Tuesday := 2,
+	Wednesday := 3,
+	Thursday := 4,
+	Friday := 5,
+	Saturday := 6,
+	Sunday := 0
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

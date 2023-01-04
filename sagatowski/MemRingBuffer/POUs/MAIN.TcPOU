@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="MAIN" Id="{070908f0-aa76-465d-b778-6ce3b20b7726}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	Eventbuffer: FB_EventBuffer;
+	
+	AddEvent: BOOL;
+	stEventToAdd: ST_Event;
+	bEventToAddError: BOOL;
+	
+	
+ReadAndRemoveEvent: BOOL;
+stLastReadEvent: ST_Event;
+
+bReadAndRemoveEventError:BOOL;
+	nCount: UDINT;
+	 
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF AddEvent THEN
+	Eventbuffer.AddEvent(stEvent:=stEventToAdd, bError=> bEventToAddError, nCount=> nCount);
+	AddEvent:= FALSE;
+	
+END_IF
+
+IF ReadAndRemoveEvent THEN
+		Eventbuffer.GetAndRemoveEvent(stEvent=>stLastReadEvent, bError=> bReadAndRemoveEventError, nCount=> nCount);
+ReadAndRemoveEvent:=FALSE;
+END_IF
+
+IF StartNotePad THEN
+	notepadStart(c
+END_IF
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="38" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="30" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
