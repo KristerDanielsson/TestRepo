@@ -22,6 +22,9 @@ VAR
 	nEventIdentity: UDINT:=1;
 	sEventText: STRING(255):= 'Allvarligt fel';
 
+	testLogger: Eventlogger;
+	fbNy: POU;
+	
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -39,15 +42,5 @@ CSVPersistentEventStorage();
 //stThisIsOurFirstInstanceOfAStructure.dtTimeStamp := SYSTEMTIME_TO_DT(TIMESTR:=timeStruct);
 //stThisIsOurFirstInstanceOfAStructure.sEventText:= 'TEST';]]></ST>
     </Implementation>
-    <LineIds Name="MAIN">
-      <LineId Id="23" Count="1" />
-      <LineId Id="58" Count="0" />
-      <LineId Id="27" Count="0" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="85" Count="2" />
-      <LineId Id="35" Count="1" />
-      <LineId Id="40" Count="1" />
-      <LineId Id="21" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>
